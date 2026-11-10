@@ -16,7 +16,7 @@ pipeline {
                 steps {
                   echo '...test started.....'
                   sh 'mvn surefire-report:report'
-                  echo '...test completed...'
+                  echo '....test completed...'
                 }	
            }
            stage('SonarQube-Analsys') {
