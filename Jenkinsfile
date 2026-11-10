@@ -11,7 +11,7 @@ pipeline {
 		}	
 	   }	
            stage('SonarQube-Analsys') {
-		enviroment {
+		environment {
 		sonarHome =tool 'saidemy-sonarqube-scanner'
 		}
 		steps {
