@@ -7,9 +7,18 @@ pipeline {
 	stages {
 	   stage('build') {
 		steps {
-		  sh 'mvn clean package'
+                  echo '...build started.....'
+		  sh 'mvn clean package -Dmaven.test.skip=true'
+                  echo '...build completed...'
 		}	
-	   }	
+	   }
+           stage('test') {
+                steps {
+                  echo '...test started.....'
+                  sh 'maven-sureifle-report:report'
+                  echo '...test completed...'
+                }	
+           }
            stage('SonarQube-Analsys') {
 		environment {
 		sonarHome =tool 'saidemy-sonarqube-scanner'
